@@ -1,12 +1,12 @@
 import React from 'react'
 
-function loading() {
+function LoadingComponent() {
   return (
     <div>
-      <div className="bg-white dark:bg-gray-800 flex justify-center items-center w-screen h-screen p-5">
+      <div className="bg-white  flex justify-center items-center w-screen h-[50vh] p-5">
   <div className="border border-gray-200 p-2 rounded-md shadow-lg shadow-orange-300">
     <div className="flex items-end gap-1">
-      <span className="text-6xl font-semibold dark:text-white">T</span>
+      <span className="text-6xl font-semibold text-black">T</span>
       <svg
         className="animate-spin"
         fill="#F97316"
@@ -35,8 +35,8 @@ function loading() {
           transform="translate(-41 -25)"
         />
       </svg>
-      <span className="text-6xl font-semibold dark:text-white">Do</span>
-      <span className="text-6xl font-semibold text-orange-500">App</span>
+      <span className="text-6xl font-semibold text-black">Dos </span>
+      <span className="text-6xl font-semibold text-orange-500"> Loading</span>
     </div>
   </div>
 </div>;
@@ -45,4 +45,4 @@ function loading() {
   )
 }
 
-export default loading
+export default LoadingComponent

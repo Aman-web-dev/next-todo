@@ -32,6 +32,7 @@ function Page() {
       <div className="flex flex-row">
         {showModal ? <Modal closeModal={() => setShowModal(false)} /> : ""}
         <TodoDisplay />
+        
       </div>
     </div>
   );

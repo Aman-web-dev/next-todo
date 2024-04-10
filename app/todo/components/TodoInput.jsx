@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { addTodoInDb, fetchTodoData } from "../serverActions/serverActions";
-import TodoDisplay from "./TodoDisplay";
+import { useState } from "react";
+import { addTodoInDb} from "../serverActions/serverActions";
 import { useAuth } from "@/context/authContext";
-import Loading from "./loading";
+
 
 function TodoInput(props) {
   const { currentUser } = useAuth();
@@ -23,8 +22,8 @@ function TodoInput(props) {
   const handleTodoInput = async (e) => {
     e.preventDefault();
     setLoading(true)
-    const result = await addTodoInDb(todo, "http://localhost:3000/api");
-    alert(result);
+    const result = await addTodoInDb(todo, "http://localhost:3000/api/post");
+ 
     props.close();
     console.log(result);
     setTodo({
@@ -85,7 +84,8 @@ function TodoInput(props) {
             onChange={(e) => {
               setTodo({ ...todo, status: e.target.value });
             }}
-          >
+            required
+          ><option value="" disabled>Select</option>
             <option value="todo">Todo</option>
             <option value="done">Done</option>
             <option value="cancelled">Cancelled</option>

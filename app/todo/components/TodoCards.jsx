@@ -1,45 +1,56 @@
 import React from "react";
+import { deleteTodo,UpdateTodoStatus } from "../serverActions/serverActions";
+import { useAuth } from "@/context/authContext";
 
 function TodoCards(props) {
+
+ function handleTodoDelete(todo_id){
+deleteTodo(todo_id)
+ }
+ function handleUpdate(value){
+  UpdateTodoStatus(props.todo_id,value)
+   }
+
+
   return (
-    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className={`max-w-sm p-6 border bg-orange-300   border-gray-200 rounded-lg shadow bg-opacity-55 m-2 ${
+      props.bgColor} ${
+      props.status === 'todo' ? 'bg-orange-300' :
+      props.status === 'done' ? 'bg-green-300 text-black' :
+      props.status === 'postponed' ? 'bg-blue-400' :
+      props.status === 'cancelled' ? 'bg-black' : ''
+    }`}>
       <a href="#">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {props.title}
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-wrap">
+         Todo: {props.title}
         </h5>
       </a>
-      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        {props.desc}
+      <p className="mb-3 font-normal text-wrap w-[100%]">
+        Description:{props.desc}
       </p>
 
-      <section className="flex flex-col">
-        <a
-          href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          {props.status}
-          <svg
-            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
+      <section className="flex flex-col w-[40%]">
+      <select
+            id="countries"
+            className="bg-gray-50 my-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            
+            onChange={(e) => {
+               handleUpdate(e.target.value)
+            }}  
+            required
+            value={props.status} 
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-        <a
-          href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            <option value="todo">Todo</option>
+            <option value="done">Done</option>
+            <option value="cancelled">Cancelled</option>
+            <option value="postponed">postponed</option>
+          </select>
+        <button onClick={()=>handleTodoDelete(props.todo_id)}
+         
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-red-400"
         >
           Delete
-        </a>
+        </button>
       </section>
     </div>
   );
