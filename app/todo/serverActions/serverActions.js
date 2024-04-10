@@ -1,5 +1,11 @@
 "use server";
 import get from "../../api/get/route";
+import { env } from 'dotenv'; 
+env.config();
+
+const server_url=env("SERVER_URL")
+
+
 
 export const addTodoInDb = async (todo, url) => {
   const newTodo = {
@@ -11,7 +17,7 @@ export const addTodoInDb = async (todo, url) => {
 
   console.log("newTodo", newTodo);
 
-  const result = await fetch(url, {
+  const result = await fetch(`${server_url}${url}`, {
     method: "POST",
     body: JSON.stringify(newTodo),
     headers: { "Content-Type": "application/json" },
@@ -26,7 +32,7 @@ export const addTodoInDb = async (todo, url) => {
 
 export const fetchTodoData = async (url,user_id) => {
   try {
-    const response = await fetch(url, {
+    const response = await fetch(`${server_url}${url}`, {
       method: "GET",
       cache: "no-cache",
       
@@ -43,7 +49,7 @@ export const fetchTodoData = async (url,user_id) => {
 export const deleteTodo = async (todo_id) => {
   try {
     console.log("Todo id",todo_id)
-    const response = await fetch(`http://localhost:3000/api/delete?todo_id=${todo_id}`, {
+    const response = await fetch(`${server_url}api/delete`, {
       method: "DELETE",
       body:JSON.stringify({todo_id:todo_id})
     });
@@ -65,7 +71,7 @@ export const UpdateTodoStatus = async (id,value) => {
   console.log("value",value,id)
   try {
     console.log("value",value)
-    const response = await fetch(`http://localhost:3000/api/put`, {
+    const response = await fetch(`${server_url}api/put`, {
       method: "PUT",
       body:JSON.stringify({todo_id:id,status:value})
     });

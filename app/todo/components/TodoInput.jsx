@@ -22,7 +22,7 @@ function TodoInput(props) {
   const handleTodoInput = async (e) => {
     e.preventDefault();
     setLoading(true)
-    const result = await addTodoInDb(todo, "http://localhost:3000/api/post");
+    const result = await addTodoInDb(todo, "api/post");
  
     props.close();
     console.log(result);

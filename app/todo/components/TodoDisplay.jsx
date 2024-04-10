@@ -13,7 +13,7 @@ function TodoDisplay({ newTodo }) {
 
   const getData = async () => {
     setWaiting(true);
-    const data = await fetchTodoData("http://localhost:3000/api/get");
+    const data = await fetchTodoData("api/get");
     setTodos(data);
     setWaiting(false);
   };
