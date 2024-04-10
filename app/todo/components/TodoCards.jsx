@@ -13,9 +13,9 @@ deleteTodo(todo_id)
 
 
   return (
-    <div className={`max-w-sm p-6 border bg-orange-300   border-gray-200 rounded-lg shadow bg-opacity-55 m-2 ${
+    <div className={`max-w-sm p-6 border    border-gray-200 rounded-lg shadow bg-opacity-55 m-2 ${
       props.bgColor} ${
-      props.status === 'todo' ? 'bg-orange-300' :
+      props.status === '' ? 'bg-orange-300' :
       props.status === 'done' ? 'bg-green-300 text-black' :
       props.status === 'postponed' ? 'bg-blue-400' :
       props.status === 'cancelled' ? 'bg-black' : ''
