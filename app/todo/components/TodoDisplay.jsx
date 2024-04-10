@@ -1,18 +1,27 @@
 'use client'
 
-import React from 'react'
+import {useState,useEffect}from 'react'
 import TodoCards from './todoCards'
+import { fetchTodoData } from '../serverActions/serverActions';
+
 
 function TodoDisplay(props) {
+  const [todoList, setTodoList] = useState([]);
 
-console.log(" i am chnaged so rendering")
-console.log(props.todos)
+  const getData=async()=>{
+    console.log("getting")
+    const res=await fetchTodoData()
+    setTodoList(res)
+  }
+  useEffect(()=>{
+    console.log("checking")
+      getData()
+  },[])
 
   return (
-    <div className='grid grid-cols-3'>
+    <div className='grid grid-cols-4'>
       {
-        props.todos.map((elem,index)=>{
-          {console.log(elem,index)}
+        todoList.map((elem,index)=>{
           return(
           <div key={index} className='m-2'>
           <TodoCards title={elem.title} desc={elem.description} status={elem.status}/>

@@ -12,7 +12,10 @@ export const addTodoInDb = async (todo,url) => {
     title: todo.title,
     description: todo.title,
     status: todo.status,
+    user_id:todo.user_id
   };
+
+  console.log("newTodo",newTodo)
 
   const result = await fetch(
     url,
@@ -20,11 +23,13 @@ export const addTodoInDb = async (todo,url) => {
       method: "POST",
       body: JSON.stringify(newTodo),
       headers: { "Content-Type": "application/json" },
-    }
+      bodyParser:false,
+    } 
   );
 
   if (result.ok) {
     console.log("DONE DONA DAN DAN"); 
+    return "The Todo Has Been Added Successfully"
   }
 };
 
@@ -38,11 +43,8 @@ export const fetchTodoData = async () => {
             throw new Error('Failed to fetch data');
         }
         const data = await response.json();
-        console.log("result:", data);
-    
         return data;
     } catch (error) {
-        console.error('Error fetching data:', error);
         throw error;
     }
 }
