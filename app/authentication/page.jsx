@@ -67,7 +67,7 @@ function Page() {
 
   useEffect(() => {
     if (userLoggedIn) {
-      redirect("/"); 
+      redirect("/todo"); 
     }
   }, [userLoggedIn]);
 
