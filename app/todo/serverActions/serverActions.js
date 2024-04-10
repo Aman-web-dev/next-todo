@@ -1,9 +1,10 @@
 "use server";
 import get from "../../api/get/route";
-import { env } from 'dotenv'; 
-env.config();
 
-const server_url=env("SERVER_URL")
+
+
+
+const server_url=process.env.SERVER_URL
 
 
 
