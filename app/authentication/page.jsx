@@ -75,22 +75,7 @@ function Page() {
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className=" xl:w-7/12 p-4 sm:p-12">
-          {/* <div className="text-left mx-auto">
-            <h1
-              id="title"
-              className="text-4xl mx-auto  font-bold   text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600"
-            >
-              Dev
-              <span className="text-black text-xl">-Developer&#39;s</span>
-            </h1>
-            <h1
-              id="title"
-              className="text-4xl mx-auto font-bold   text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600"
-            >
-              Lib
-              <span className="text-black text-xl">-Library</span>
-            </h1>
-          </div> */}
+        
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
             <div className="w-full flex-1 mt-8">

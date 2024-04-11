@@ -3,7 +3,6 @@ import React from 'react'
 import { useAuth } from '@/context/authContext'
 import Image from 'next/image'
 import { doSignOut } from '@/firebase/auth'
-
 import { redirect } from 'next/navigation'
 
 
@@ -22,8 +21,6 @@ function Navbar() {
     
   return (
     <div>
-      
-
 <nav className="bg-white border-gray-200  text-black">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
   <a href="/" className="flex flex-col items-center space-x-3 rtl:space-x-reverse">
