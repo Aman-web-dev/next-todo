@@ -1,28 +1,26 @@
 "use client";
 import { useEffect, useState, useMemo } from "react";
 import TodoCards from "./TodoCards";
-import { fetchTodoData } from "../serverActions/serverActions";
-import { useAuth } from "@/context/authContext";
 import LoadingComponent from "./Loading";
-import { deleteTodo } from "../serverActions/serverActions";
+import { useTodos } from "@/context/todoDataContext";
 
-function TodoDisplay({ newTodo }) {
-  
-  const [todos, setTodos] = useState();
+
+
+function TodoDisplay(props) {
   const [waiting, setWaiting] = useState(true);
+  const {todos,fetchTodo}=useTodos()
 
   const getData = async () => {
     setWaiting(true);
-    const data = await fetchTodoData("api/get");
-    setTodos(data);
+   fetchTodo()
     setWaiting(false);
   };
 
-
-
   useEffect(() => {
-    getData();
-  }, []);
+    if(props.changed==false){
+      getData()
+    }
+  }, [props.changed]);
 
   return (
     <div className="grid grid-cols-4">

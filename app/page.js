@@ -7,7 +7,7 @@ export default function Home() {
 
   const {userLoggedIn}=useAuth()
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gradient-to-r from-slate-900 to-slate-700 text text-white">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by Clicking&nbsp;
@@ -22,7 +22,7 @@ export default function Home() {
           >
          
          
-<h1 className="mb-4 text-xl font-extrabold text-gray-900 dark:text-white  "><span className="text-transparent text-3xl  bg-clip-text md:text-5xl bg-gradient-to-r lg:text-6xl to-emerald-600 from-sky-400">Todo App</span> For Triluxo Technologies </h1>
+<h1 className="mb-4 text-xl font-extrabold  "><span className="text-transparent text-3xl  bg-clip-text md:text-5xl bg-gradient-to-r lg:text-6xl to-emerald-600 from-sky-400">Todo App</span> For Triluxo Technologies </h1>
 
 
           </a>

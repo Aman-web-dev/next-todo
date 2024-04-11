@@ -68,10 +68,10 @@ export const deleteTodo = async (url,todo_id) => {
 
 
 export const UpdateTodoStatus = async (url,id,value) => {
-  console.log("value",value,id)
+  console.log("value",value,id,`${server_url}${url}`)
   try {
     console.log("value",value)
-    const response = await fetch(`${server_url}/${url}`, {
+    const response = await fetch(`https://next-todo-five-ebon.vercel.app/${url}`, {
       method: "PUT",
       body:JSON.stringify({todo_id:id,status:value})
     });

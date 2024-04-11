@@ -3,8 +3,8 @@ import React from 'react'
 function LoadingComponent() {
   return (
     <div>
-      <div className="bg-white  flex justify-center items-center w-screen h-[50vh] p-5">
-  <div className="border border-gray-200 p-2 rounded-md shadow-lg shadow-orange-300">
+      <div className=" flex justify-center items-center w-screen h-[50vh] p-5">
+  <div className="border border-gray-200 p-2 rounded-md shadow-lg shadow-[#099975]">
     <div className="flex items-end gap-1">
       <span className="text-6xl font-semibold text-black">T</span>
       <svg
@@ -36,7 +36,7 @@ function LoadingComponent() {
         />
       </svg>
       <span className="text-6xl font-semibold text-black">Dos </span>
-      <span className="text-6xl font-semibold text-orange-500"> Loading</span>
+      <span className="text-6xl font-semibold text-[#36bcf4]"> Loading</span>
     </div>
   </div>
 </div>;

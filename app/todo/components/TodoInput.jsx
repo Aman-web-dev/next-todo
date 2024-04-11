@@ -3,11 +3,14 @@
 import { useState } from "react";
 import { addTodoInDb} from "../serverActions/serverActions";
 import { useAuth } from "@/context/authContext";
+import DataPasser from "./DataPasser";
+import { useTodos } from "@/context/todoDataContext";
 
 
 function TodoInput(props) {
-  const { currentUser } = useAuth();
 
+  const {addTodo}=useTodos()
+  const { currentUser } = useAuth();
   const [todo, setTodo] = useState({
     title: "",
     description: "",
@@ -16,16 +19,12 @@ function TodoInput(props) {
   });
 
   const [loading, setLoading] = useState(false);
-
   console.log(currentUser);
-
   const handleTodoInput = async (e) => {
     e.preventDefault();
-    setLoading(true)
-    const result = await addTodoInDb(todo, "api/post");
- 
+    setLoading(true);
+    addTodo(todo)
     props.close();
-    console.log(result);
     setTodo({
       title: "",
       description: "",
@@ -99,6 +98,7 @@ function TodoInput(props) {
           >
             {loading ? "Wait..." : "Add Todo"}
           </button>
+          <DataPasser />
         </div>
       </form>
     </div>
