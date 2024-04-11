@@ -39,7 +39,7 @@ function TodoInput(props) {
     >
       <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="Todo">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Todo">
             Todo
           </label>
           <input
@@ -54,7 +54,7 @@ function TodoInput(props) {
           />
         </div>
         <section className="my-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="Todo">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Todo">
             Description
           </label>
           <textarea
@@ -71,7 +71,7 @@ function TodoInput(props) {
         </section>
 
         <section className="my-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="Todo">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Todo">
             Status
           </label>
           <select
