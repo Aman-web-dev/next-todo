@@ -1,5 +1,5 @@
 "use server";
-import get from "../../api/get/route";
+
 
 
 
@@ -47,32 +47,31 @@ export const fetchTodoData = async (url,user_id) => {
   }
 };
 
-export const deleteTodo = async (todo_id) => {
+export const deleteTodo = async (url,todo_id) => {
   try {
     console.log("Todo id",todo_id)
-    const response = await fetch(`${server_url}api/delete`, {
+    const response = await fetch(`${server_url}${url}`, {
       method: "DELETE",
       body:JSON.stringify({todo_id:todo_id})
     });
+    console.log(response)
 
     if (response.ok) {
       console.log("User Deleted Successfully");
     }
 
-    if (!response.ok) {
-      throw new Error(`Failed to delete todo: ${response.statusText}`);
-    }
   } catch (error) {
+    console.log(error)
     throw error
   }
 };
 
 
-export const UpdateTodoStatus = async (id,value) => {
+export const UpdateTodoStatus = async (url,id,value) => {
   console.log("value",value,id)
   try {
     console.log("value",value)
-    const response = await fetch(`${server_url}api/put`, {
+    const response = await fetch(`${server_url}/${url}`, {
       method: "PUT",
       body:JSON.stringify({todo_id:id,status:value})
     });
@@ -82,8 +81,8 @@ export const UpdateTodoStatus = async (id,value) => {
     }
 
     if (!response.ok) {
-      console.log(response.statusText)
-      throw new Error(`Failed to delete todo: ${response.statusText}`);
+      console.log(response)
+      
     }
   } catch (error) {
     throw error

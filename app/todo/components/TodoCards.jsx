@@ -5,10 +5,10 @@ import { useAuth } from "@/context/authContext";
 function TodoCards(props) {
 
  function handleTodoDelete(todo_id){
-deleteTodo(todo_id)
+deleteTodo("api/delete",todo_id)
  }
  function handleUpdate(value){
-  UpdateTodoStatus(props.todo_id,value)
+  UpdateTodoStatus("api/put",props.todo_id,value)
    }
 
 
