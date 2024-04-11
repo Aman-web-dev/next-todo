@@ -1,18 +1,18 @@
 
+import { useAuth } from "@/context/authContext";
 import { useTodos } from "@/context/todoDataContext";
 
 function TodoCards(props) {
-
-
+const {currentUser}=useAuth()
 
   const {updateTodo,deleteOneTodo}=useTodos()
 
   
   function handleTodoDelete(todo_id) {
-    deleteOneTodo(todo_id);
+    deleteOneTodo(todo_id,currentUser.uid);
   }
   function handleUpdate(value) {
-    updateTodo(props.todo_id, value);
+    updateTodo(props.todo_id, value,currentUser.uid);
   }
 
   return (

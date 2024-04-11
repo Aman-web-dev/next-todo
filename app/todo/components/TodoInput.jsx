@@ -21,7 +21,7 @@ function TodoInput(props) {
   const handleTodoInput = async (e) => {
     e.preventDefault();
     setLoading(true);
-    addTodo(todo)
+    addTodo(todo,currentUser?.uid)
     props.close();
     setTodo({
       title: "",

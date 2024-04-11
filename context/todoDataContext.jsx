@@ -2,15 +2,16 @@
 
 import { fetchTodoData ,addTodoInDb ,UpdateTodoStatus ,deleteTodo} from '@/app/todo/serverActions/serverActions';
 import React, { createContext, useState, useContext } from 'react';
+import { useAuth } from './authContext';
 
 
 
 const TodoContext = createContext({
   todos: [],
-  addTodo: (todo) => {},
-  updateTodo: (todo_id, updatedData) => {},
-  deleteOneTodo: (todo_id) => {},
-  fetchTodo:()=>{},
+  addTodo: (todo,user_id) => {},
+  updateTodo: (todo_id, updatedData,user_id) => {},
+  deleteOneTodo: (todo_id,user_id) => {},
+  fetchTodo:(user_id)=>{},
 });
 
 export const useTodos = () => useContext(TodoContext);
@@ -18,26 +19,24 @@ export const useTodos = () => useContext(TodoContext);
 export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
 
-  const addTodo = async (newTodo) => {
+  const addTodo = async (newTodo,user_id) => {
     const result = await addTodoInDb(newTodo, "api/post")
     console.log(result)
-    fetchTodo()
+    fetchTodo(user_id)
   };
 
-  const updateTodo = async (todo_id, updatedData) => {
+  const updateTodo = async (todo_id, updatedData,user_id) => {
   const res=await   UpdateTodoStatus("api/put", todo_id, updatedData);
-    fetchTodo()
+    fetchTodo(user_id)
   };
 
-  const deleteOneTodo = async (todo_id) => {
+  const deleteOneTodo = async (todo_id,user_id) => {
    const res= await  deleteTodo("api/delete", todo_id);
-    fetchTodo()
+    fetchTodo(user_id)
   };
   
-
-
-  const fetchTodo=async()=>{
-    const data = await fetchTodoData("api/get");
+  const fetchTodo=async(user_id)=>{
+    const data = await fetchTodoData("api/get",user_id);
     setTodos(data)
   }
 

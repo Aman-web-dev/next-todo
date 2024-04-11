@@ -3,16 +3,18 @@ import { useEffect, useState, useMemo } from "react";
 import TodoCards from "./TodoCards";
 import LoadingComponent from "./Loading";
 import { useTodos } from "@/context/todoDataContext";
+import { useAuth } from "@/context/authContext";
 
 
 
 function TodoDisplay(props) {
+  const {currentUser}=useAuth()
   const [waiting, setWaiting] = useState(true);
   const {todos,fetchTodo}=useTodos()
 
   const getData = async () => {
     setWaiting(true);
-   fetchTodo()
+   fetchTodo(currentUser.uid)
     setWaiting(false);
   };
 

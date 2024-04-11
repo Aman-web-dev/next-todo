@@ -33,14 +33,13 @@ export const addTodoInDb = async (todo, url) => {
 
 export const fetchTodoData = async (url,user_id) => {
   try {
-    const response = await fetch(`${server_url}${url}`, {
+    const response = await fetch(`${server_url}${url}?user_id=${user_id}`, {
       method: "GET",
       cache: "no-cache",
       
     });
 
     const data = await response.json();
-    console.log("data", data.data);
     return data.data;
   } catch (error) {
     throw error;
