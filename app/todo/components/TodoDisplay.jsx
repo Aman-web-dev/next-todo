@@ -22,8 +22,12 @@ function TodoDisplay(props) {
     }
   }, [props.changed]);
 
+ 
+
   return (
     <div className="flex flex-wrap gap-4 p-4">
+
+      
       {waiting ? (
         <LoadingComponent />
       ) : (
