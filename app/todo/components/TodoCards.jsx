@@ -1,8 +1,3 @@
-import React from "react";
-import { deleteTodo, UpdateTodoStatus } from "../serverActions/serverActions";
-import TodoDisplay from "./TodoDisplay";
-import DataPasser from "./DataPasser";
-
 
 import { useTodos } from "@/context/todoDataContext";
 
@@ -22,7 +17,7 @@ function TodoCards(props) {
 
   return (
     <div
-      className={` p-6 border    border-gray-200 rounded-lg shadow bg-opacity-55 m-2 ${
+      className={`min-w-[20vw] mx-auto  p-6 border    border-gray-200 rounded-lg shadow bg-opacity-55 m-2 ${
         props.bgColor
       } ${
         props.status === ""
@@ -66,7 +61,6 @@ function TodoCards(props) {
         >
           Delete
         </button>
-        <DataPasser handleUpdate={()=>{console.log("updating")}} handleDelete={()=>{console.log(props.todo_id)}}  message={"How are You sir"}/>
       </section>
     </div>
   );

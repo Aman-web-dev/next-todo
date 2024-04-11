@@ -23,7 +23,7 @@ function TodoDisplay(props) {
   }, [props.changed]);
 
   return (
-    <div className="grid grid-cols-4">
+    <div className="flex flex-wrap gap-4 p-4">
       {waiting ? (
         <LoadingComponent />
       ) : (

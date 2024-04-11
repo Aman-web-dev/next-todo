@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { addTodoInDb} from "../serverActions/serverActions";
 import { useAuth } from "@/context/authContext";
-import DataPasser from "./DataPasser";
 import { useTodos } from "@/context/todoDataContext";
+import { useState } from "react";
 
 
 function TodoInput(props) {
@@ -98,7 +96,7 @@ function TodoInput(props) {
           >
             {loading ? "Wait..." : "Add Todo"}
           </button>
-          <DataPasser />
+
         </div>
       </form>
     </div>
