@@ -1,18 +1,27 @@
 "use client";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import TodoInput from "./components/TodoInput";
 import TodoDisplay from "./components/TodoDisplay";
 import Modal from "./components/Modal";
-import  UploadButton  from "./components/UploadButton";
+import UploadButton from "./components/UploadButton";
 import Navbar from "./components/Navbar";
+import { redirect } from "next/dist/server/api-utils";
+import { useAuth } from "@/context/authContext";
 
 function Page() {
+  const { userLoggedIn } = useAuth();
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (userLoggedIn == false) {
+      redirect("/");
+    }
+  }, [userLoggedIn]);
 
   return (
     <div className="bg-gradient-to-b from-slate-50 to-emerald-200 min-h-screen">
-      <Navbar/>
+      <Navbar />
       <div className="text-center my-4">
         <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
@@ -33,8 +42,7 @@ function Page() {
 
       <div className="flex flex-row">
         {showModal ? <Modal closeModal={() => setShowModal(false)} /> : ""}
-        <TodoDisplay changed={showModal}/>
-        
+        <TodoDisplay changed={showModal} />
       </div>
     </div>
   );
