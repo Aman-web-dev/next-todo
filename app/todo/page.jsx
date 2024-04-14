@@ -20,7 +20,7 @@ function Page() {
   }, [userLoggedIn]);
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 to-emerald-200 min-h-screen">
+    <div className="bg-gradient-to-b from-slate-50 to-emerald-200 min-h-screen px-4">
       <Navbar />
       <div className="text-center my-4">
         <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-black md:text-5xl lg:text-6xl">

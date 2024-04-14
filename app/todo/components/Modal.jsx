@@ -4,12 +4,11 @@ import TodoInput from "./TodoInput";
 const Modal = (props) => {
   return (
     <div
-      className="z-10"
+      className="z-10 w-[100vw]"
       aria-labelledby="crop-image-dialog"
-
     >
       <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-all backdrop-blur-sm"></div>
-      <div className="fixed inset-10 z-10 w-screen overflow-y-auto">
+      <div className="fixed inset-10 z-10  overflow-y-auto">
         <div className="flex  justify-center px-2 py-12 text-center ">
           <div className="relative w-[95%] sm:w-[80%] min-h-[0vh] rounded-2xl bg-gray-800 text-slate-100 text-left shadow-xl transition-all">
             <div className="px-5 py-4">
