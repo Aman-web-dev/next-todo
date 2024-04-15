@@ -1,17 +1,12 @@
-"use server";
 
-
-
-
-
-const server_url=process.env.SERVER_URL
+ const server_url=process.env.SERVER_URL?process.env.SERVER_URL:"http://localhost:3000/"
 
 
 
 export const addTodoInDb = async (todo, url) => {
   const newTodo = {
     title: todo.title,
-    description: todo.title,
+    description: todo.description,
     status: todo.status,
     user_id: todo.user_id,
   };
@@ -36,7 +31,6 @@ export const fetchTodoData = async (url,user_id) => {
     const response = await fetch(`${server_url}${url}?user_id=${user_id}`, {
       method: "GET",
       cache: "no-cache",
-      
     });
 
     const data = await response.json();
@@ -70,7 +64,7 @@ export const UpdateTodoStatus = async (url,id,value) => {
   console.log("value",value,id,`${server_url}${url}`)
   try {
     console.log("value",value)
-    const response = await fetch(`https://next-todo-five-ebon.vercel.app/${url}`, {
+    const response = await fetch(`${server_url}${url}`, {
       method: "PUT",
       body:JSON.stringify({todo_id:id,status:value})
     });
@@ -87,3 +81,6 @@ export const UpdateTodoStatus = async (url,id,value) => {
     throw error
   }
 };
+
+
+

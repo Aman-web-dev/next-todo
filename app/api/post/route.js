@@ -2,8 +2,7 @@ import prisma from "../../../lib/prisma";
 import { NextResponse } from "next/server";
 
 const POST = async (req, res) => {
-
-  console.log(req.method)
+  console.log(req.method);
   try {
     const { title, description, status, user_id } = await req.json();
     const result = await prisma.todo.create({
@@ -15,16 +14,11 @@ const POST = async (req, res) => {
         status: status,
       },
     });
-   
-      return NextResponse.json({ data: result }, { status: 201 });
-    
+
+    return NextResponse.json({ data: result }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: error }, { status: 500 });
   }
-
-
-
-  
 };
 
 export { POST };

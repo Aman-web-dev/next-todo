@@ -1,6 +1,6 @@
 'use client'
 
-import { fetchTodoData ,addTodoInDb ,UpdateTodoStatus ,deleteTodo} from '@/app/todo/serverActions/serverActions';
+import { fetchTodoData ,addTodoInDb ,UpdateTodoStatus ,deleteTodo} from '@/app/todo/routeHandlers/routeHandlers';
 import React, { createContext, useState, useContext } from 'react';
 import { useAuth } from './authContext';
 

@@ -6,7 +6,6 @@ import React, { useState, useEffect } from "react";
 import { doSignInWithGithub,doCreateUserWithEmailAndPassword,doSignInWithGoogle } from "@/firebase/auth";
 import { useAuth } from "@/context/authContext";
 import { redirect } from "next/navigation";
-
 import Link from "next/link";
 
 
