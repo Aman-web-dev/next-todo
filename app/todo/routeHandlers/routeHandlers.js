@@ -1,5 +1,5 @@
-
- const server_url=process.env.SERVER_URL
+// "use server"
+ const server_url="https://next-todo-five-ebon.vercel.app"
 
 
 
