@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 const DELETE= async (req, res) => {
 
-  console.log("we are here to delete")
+  
   try {
     const { todo_id} = await req.json();
     const deleteTodo = await prisma.todo.delete({

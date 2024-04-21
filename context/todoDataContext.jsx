@@ -24,7 +24,7 @@ export const TodoProvider = ({ children }) => {
 
   const addTodo = async (newTodo,user_id) => {
     const result = await addTodoInDb(newTodo, "api/post")
-    console.log(result)
+   
     fetchTodo(user_id,false)
   };
 

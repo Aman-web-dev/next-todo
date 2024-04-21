@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 function Navbar() {
   const { currentUser } = useAuth();
-  console.log(currentUser);
+  
   const imageUrl = currentUser?.photoURL;
 
   if (!currentUser) {
