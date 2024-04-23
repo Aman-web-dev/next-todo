@@ -9,7 +9,7 @@ export const AuthContext = React.createContext();
 export function useAuth() {
   return useContext(AuthContext);
 }
-
+//context for the todo
 function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
